@@ -15,7 +15,7 @@ switch (_Key) do
 			{
 				createDialog 'NMIB_Setup_GUI';
 			} else {
-				if (NMIB_BuildProgress == 0) then
+				if (NMIB_BuildProgress isEqualTo 0) then
 				{
 					[_Key] call NMIB_fnc_Action;
 				} else {

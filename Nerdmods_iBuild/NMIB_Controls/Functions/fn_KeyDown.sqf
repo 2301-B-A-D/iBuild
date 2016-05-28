@@ -13,8 +13,8 @@ _ActionKey2 = (actionKeys NMIB_ActionKey2 select 0);
 if (_KeyOnly) then
 {
 	_Return = nil;
-	
-	if (_Key == _Esc) then
+
+	if (_Key isEqualTo _Esc) then
 	{
 		if (NMIB_Enabled) then
 		{
@@ -22,18 +22,18 @@ if (_KeyOnly) then
 			[NMIB_ClassName] call NMIB_fnc_RestoreItems;
 			_Return = true;
 		};
-	};	
-	if (_Key == _ActionKey1) then
+	};
+	if (_Key isEqualTo _ActionKey1) then
 	{
 		if (NMIB_CanBuild) then
 		{
 			[] call NMIB_fnc_BuildModule;
 			NMIB_ActionKey1Down = true;
 		};
-		
+
 		_Return = true;
 	};
-	if (_Key == _ActionKey2) then
+	if (_Key isEqualTo _ActionKey2) then
 	{
 		if (NMIB_Enabled) then
 		{

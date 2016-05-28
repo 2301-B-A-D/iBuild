@@ -11,10 +11,10 @@ BEFORE YOU BEGIN<br/><br/>For iBuild to function in it's full glory, you must fi
 <a href='http://ibuildmod.wordpress.com/controls'>Video</a></t>",profileName]; */
 
 _KeysBound = [];
-if (count actionKeys NMIB_ActionKey1 == 0) then {_KeysBound = _KeysBound + ['Unbound']} else {_KeysBound = _KeysBound + [(actionKeysNamesArray NMIB_ActionKey1 select 0)]};
+if (actionKeys NMIB_ActionKey1 isEqualTo []) then {_KeysBound = _KeysBound + ['Unbound']} else {_KeysBound = _KeysBound + [(actionKeysNamesArray NMIB_ActionKey1 select 0)]};
 /* if (count actionKeys 'User2' == 0) then {_KeysBound = _KeysBound + ['Unbound']} else {_KeysBound = _KeysBound + [(actionKeysNamesArray "User2" select 0)]};
 if (count actionKeys 'User3' == 0) then {_KeysBound = _KeysBound + ['Unbound']} else {_KeysBound = _KeysBound + [(actionKeysNamesArray "User3" select 0)]};
-if (count actionKeys 'User4' == 0) then {_KeysBound = _KeysBound + ['Unbound']} else {_KeysBound = _KeysBound + [(actionKeysNamesArray "User4" select 0)]};	 */	
+if (count actionKeys 'User4' == 0) then {_KeysBound = _KeysBound + ['Unbound']} else {_KeysBound = _KeysBound + [(actionKeysNamesArray "User4" select 0)]};	 */
 
 /* _WhiteSpace = ":        ";
 _ListBox lnbAddRow [(actionName _ActionKey)+_WhiteSpace+"Craft & Build",_KeysBound select 0];

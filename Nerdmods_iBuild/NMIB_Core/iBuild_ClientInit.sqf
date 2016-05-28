@@ -7,13 +7,13 @@ NMIB_BuildProgress = 0;
 NMIB_ActionKey1Down = false;
 NMIB_PlotSize = if (_PlotSize == 0) then {1;} else {_PlotSize;};
 
-_Itemslist = if (count _Itemslist == 0) then {getArray (configFile >> "CfgPatches" >> "NerdMods_iBuild" >> "iBuild_Items");} else {_Itemslist;};
+_Itemslist = if (_Itemslist isEqualTo []) then {getArray (configFile >> "CfgPatches" >> "NerdMods_iBuild" >> "iBuild_Items");} else {_Itemslist;};
 missionNamespace setVariable ["NMIB_ItemsList",_Itemslist];
 
 // Get & store list of craft-able modules. - Prevents game hanging on dialog load.
 {
 	_GroupClass = 'iBuild_'+_x;
-	
+
 	_List = [];
 	{
 		_Classname = configName _x;

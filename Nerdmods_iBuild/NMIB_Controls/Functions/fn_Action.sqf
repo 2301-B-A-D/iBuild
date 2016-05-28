@@ -3,13 +3,13 @@
 if (!NMIB_Enabled) then
 {
 	// Action only available if not in vehicle
-	if (vehicle player == player) then
+	if (isNull objectParent player) then
 	{
-		_Object = cursorTarget;	
+		_Object = cursorObject;
 		if (isNull _Object) then
 		{
 			_Object = player;
-		} else {	
+		} else {
 			_MemoryPoint = getText (configFile >> "CfgVehicles" >> (typeOf _Object) >> "memoryPointSupply");
 			_MpPos = _Object modelToWorld (_Object selectionPosition _MemoryPoint);
 			_Radius = getNumber (configFile >> "CfgVehicles" >> (typeOf _Object) >> "supplyRadius");
@@ -22,20 +22,20 @@ if (!NMIB_Enabled) then
 				_Object = player;
 			};
 		};
-		
+
 		// First check if player is inside a plot and has recently had access to plot storage.
 		_PlotStorage = (missionNamespace getVariable 'NMIB_Workbench');
-		if (_Object == player && !isNull _PlotStorage) then
-		{			
+		if (_Object isEqualTo player && !isNull _PlotStorage) then
+		{
 			// Check if player is inside plot bounds.
 			_InsidePlot = [player,NMIB_Plot,NMIB_PlotSize,1] call NMIB_fnc_EntityInsidePlot;
 			if (_InsidePlot) then
 			{
 				_Object = _PlotStorage;
 			};
-		};	
-		
+		};
+
 		missionNamespace setVariable ['NMIB_Workbench',_Object];
-		createDialog "NMIB_Craft_GUI";		
+		createDialog "NMIB_Craft_GUI";
 	};
 };

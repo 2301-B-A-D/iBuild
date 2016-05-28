@@ -21,18 +21,18 @@ if (_InsidePlotBounds) then
 	_Bpos = [_GhostPosASL select 0,_GhostPosASL select 1,(_GhostPosASL select 2)-100];
 	_Foundations = [_Ghost,_Apos,_Bpos,["iBuild_Plot"],["iBuild_Floors"]] call NMIB_fnc_ModuleCheck;
 
-	if (count _Foundations == 0) then
+	if (_Foundations isEqualTo []) then
 	{
 		_BlockSize = 5;
-		
+
 		_NMIB_DiagDist = (((sqrt 2)*_BlockSize)/2);
 		{
 			_CornerTop = [(_GhostPosASL select 0)+(_NMIB_DiagDist)*sin((getDir _Ghost)+_x),(_GhostPosASL select 1)+(_NMIB_DiagDist)*cos((getDir _Ghost)+_x),_GhostPosASL select 2];
 			_CornerBottom = [_CornerTop select 0,_CornerTop select 1,(_CornerTop select 2)-(((boundingBox _Ghost select 1) select 2)*2)];
-			
+
 			_CornerTopHeight = ((ASLToATL _CornerTop) select 2);
 			_CornerTopBottom = ((ASLToATL _CornerBottom) select 2);
-			
+
 			if (_CornerTopHeight < 0 || _CornerTopBottom > 0) exitWith
 			{
 				_PositionFree = false;

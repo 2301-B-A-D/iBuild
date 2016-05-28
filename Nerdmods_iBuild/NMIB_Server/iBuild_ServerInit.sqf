@@ -6,20 +6,19 @@ _iniDBI = getNumber (configFile >> 'CfgPatches' >> 'iniDBI' >> 'requiredVersion'
 if (_iniDBI > 0) then
 {
 	// iniDBI installed
-	
+
 	// Enable iniDBI if disabled
 	if (isNil ('iniDB_version')) then
 	{
-		call compile preProcessFile "\inidbi\init.sqf";			
+		call compile preProcessFile "\inidbi\init.sqf";
 	};
-	
+
 	if (!isNil ('iniDB_version')) then
 	{
 		call NMIB_fnc_DbLoad;
-		
+
 		[] spawn {
-			while {true} do
-			{
+			for "_i" from 0 to 1 step 0 do {
 				sleep 60*NMIB_RefreshDB; // Save every X minutes
 				call NMIB_fnc_DbSave;
 			};

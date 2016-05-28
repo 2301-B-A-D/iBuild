@@ -24,10 +24,10 @@ if (!_IsBuildRookie) then
 {
 	// Check if all custom user controls are bound...
 	_BindKey = {
-		if(count (actionKeys _x) == 0) exitWith {true};
+		if((actionKeys _x) isEqualTo []) exitWith {true};
 		false;
 	} forEach (profileNamespace getVariable 'NMIB_Controls');
-	
+
 	// If a key is not bound show welcome dialog
 	_IsBuildRookie = _BindKey;
 };
@@ -46,7 +46,7 @@ if (_FreePlots > 0) then
 	_RequiredItems = getArray (configFile >> "CfgVehicles" >> "NMIB_Plot" >> "iBuild_ReqItems");
 	_ItemsList = missionNamespace getVariable "NMIB_ItemsList";
 	for "_i" from 0 to (count (_RequiredItems select 0))-1 do
-	{				
+	{
 		_ReqItemClass = _ItemsList select ((_RequiredItems select 0) select _i);
 		_ReqItemCount = ((_RequiredItems select 1) select _i);
 		for "_i" from 1 to (_ReqItemCount*_FreePlots) do
