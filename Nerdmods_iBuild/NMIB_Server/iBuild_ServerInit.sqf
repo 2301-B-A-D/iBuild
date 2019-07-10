@@ -1,4 +1,4 @@
-_RefreshDB = getNumber (missionConfigFile >> "iBuild_Config" >> "iniDBI" >> "AutoSave");
+/*_RefreshDB = getNumber (missionConfigFile >> "iBuild_Config" >> "iniDBI" >> "AutoSave");
 NMIB_RefreshDB = if (_RefreshDB == 0) then {60;} else {_RefreshDB;};
 
 _iniDBI = getNumber (configFile >> 'CfgPatches' >> 'iniDBI' >> 'requiredVersion');
@@ -6,19 +6,20 @@ _iniDBI = getNumber (configFile >> 'CfgPatches' >> 'iniDBI' >> 'requiredVersion'
 if (_iniDBI > 0) then
 {
 	// iniDBI installed
-
+	
 	// Enable iniDBI if disabled
 	if (isNil ('iniDB_version')) then
 	{
-		call compile preProcessFile "\inidbi\init.sqf";
+		call compile preProcessFile "\inidbi\init.sqf";			
 	};
-
+	
 	if (!isNil ('iniDB_version')) then
 	{
 		call NMIB_fnc_DbLoad;
-
+		
 		[] spawn {
-			for "_i" from 0 to 1 step 0 do {
+			while {true} do
+			{
 				sleep 60*NMIB_RefreshDB; // Save every X minutes
 				call NMIB_fnc_DbSave;
 			};
@@ -26,4 +27,4 @@ if (_iniDBI > 0) then
 	};
 	sleep 0.1;
 	systemChat format['iniDB detected: Your iBuild structures will be saved every %1 Minute[s]',NMIB_RefreshDB];
-};
+};*/
