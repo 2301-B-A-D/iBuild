@@ -23,29 +23,28 @@ class NMIB_Plot_Workbench : ReammoBox
 		class _xx_NMIB_PlotLease_Itm
 		{
 			name = "NMIB_PlotLease_Itm";
-			count = 5;
+			count = 1;
 		};		
 		class _xx_NMIB_ScrapMetal_Itm
 		{
 			name = "NMIB_ScrapMetal_Itm";
-			count = 1000;
+			count = 2;
 		};			
 		class _xx_NMIB_WoodNails_Itm
 		{
 			name = "NMIB_WoodNails_Itm";
-			count = 1000;
+			count = 1;
 		};
 		class _xx_NMIB_WoodPlanks_Itm
 		{
 			name = "NMIB_WoodPlanks_Itm";
-			count = 1000;
+			count = 4;
 		};
 	};
 	
 	class Eventhandlers
 	{
-/* 		init = "(_this select 0) allowdamage false;(_this select 0) addAction [""<t color='#FF974D'>Relocate Workbench</t>"", {_this call NMIB_fnc_EnableiBuild;}, nil,0,false,true,"""",""(missionNamespace getVariable 'NMIB_Workbench') == (position player) nearestObject 'NMIB_Plot_Workbench';""];"; */
-		init = "(_this select 0) allowdamage false;[(_this select 0)] execVM ""Nerdmods_iBuild\NMIB_Models\NMIB_Objects\Scripts\NMIB_WbActions.sqf"";";
+		init = "(_this select 0) allowdamage false;";
 	};		
 };
 

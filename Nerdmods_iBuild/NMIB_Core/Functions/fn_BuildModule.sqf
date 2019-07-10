@@ -66,7 +66,7 @@ if (NMIB_BuildProgress == 100) then
 			player reveal _Obj;
 			_Obj setDir (getDir player);
 			_Obj setPosATL _Position;
-			[_obj, 2, 1001] call DB_fnc_spawnObject;
+			[_Obj, 2, 1001] call DB_fnc_spawnObject;
 		} else {
 			_CraftableCount = [_ModuleCN,(missionNamespace getVariable 'NMIB_Workbench')] call NMIB_fnc_CraftableCount;
 			if (_CraftableCount == 0) then
